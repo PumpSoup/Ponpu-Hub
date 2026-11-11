@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ponpu — เพลงและผลงาน (Official Landing Page)</title>
+  <meta name="description" content="ฟังซิงเกิลล่าสุด 'ม้ายเจ ม้ายใจ' และเพลงทั้งหมดของ Ponpu ศิลปิน Pop / Indie Rock">
+  <link rel="icon" href="assets/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,800&family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #07090e;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --card-hover: rgba(255, 255, 255, 0.10);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --neon-pink: #f43f5e;
+      --neon-cyan: #06b6d4;
+      --neon-purple: #a855f7;
+      --neon-orange: #ff8758;
+      --neon-green: #10b981;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Prompt', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 15% 10%, rgba(244, 63, 94, 0.18) 0%, transparent 40%),
+        radial-gradient(circle at 85% 25%, rgba(168, 85, 247, 0.20) 0%, transparent 45%),
+        radial-gradient(circle at 50% 65%, rgba(6, 182, 212, 0.14) 0%, transparent 50%),
+        radial-gradient(circle at 80% 90%, rgba(255, 135, 88, 0.15) 0%, transparent 45%);
+      background-attachment: fixed;
+      color: var(--text-main);
+      padding: 0 16px 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 680px;
+    }
+
+    /* Top Navigation Bar */
+    .navbar {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 8px 20px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .wordmark {
+      font-family: 'Barlow Condensed', Impact, sans-serif;
+      font-style: italic;
+      font-weight: 800;
+      font-size: 2.2rem;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: baseline;
+      text-shadow: 0 0 20px rgba(244, 63, 94, 0.5);
+    }
+
+    .wordmark span {
+      color: var(--neon-pink);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 999px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    /* Hero: Latest Release Banner */
+    .hero-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 28px;
+      padding: 32px;
+      margin-bottom: 40px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(244, 63, 94, 0.15);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(244, 63, 94, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero-badge-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .kicker-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #ffffff;
+      background: linear-gradient(135deg, #f43f5e, #ec4899);
+      padding: 4px 12px;
+      border-radius: 999px;
+      box-shadow: 0 0 15px rgba(244, 63, 94, 0.5);
+    }
+
+    .genre-tag {
+      font-size: 0.8rem;
+      color: var(--neon-cyan);
+      font-weight: 500;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      background: linear-gradient(to right, #ffffff, #f472b6, #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+
+    .hero-meta {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-meta span.dot {
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--neon-pink);
+    }
+
+    /* Cover Artwork with Vinyl Sleeve Effect */
+    .cover-sleeve {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1/1;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(244, 63, 94, 0.35);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cover-sleeve:hover {
+      transform: scale(1.03) rotate(-1deg);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 35px rgba(244, 63, 94, 0.6);
+    }
+
+    .cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .cover-sleeve-badge {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: rgba(10, 13, 20, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Buttons in Hero */
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 20px;
+      border-radius: 14px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-spotify {
+      background: linear-gradient(135deg, #1db954 0%, #15803d 100%);
+      color: #ffffff;
+      box-shadow: 0 6px 20px rgba(29, 185, 84, 0.35);
+    }
+
+    .btn-spotify:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(29, 185, 84, 0.55);
+      filter: brightness(1.1);
+    }
+
+    .btn-ytm {
+      background: linear-gradient(135deg, #ff0033 0%, #be123c 100%);
+      color: #ffffff;
+      box-shadow: 0 6px 20px rgba(255, 0, 51, 0.35);
+    }
+
+    .btn-ytm:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(255, 0, 51, 0.55);
+      filter: brightness(1.1);
+    }
+
+    .btn-amazon {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.15);
+      color: #e2e8f0;
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-amazon:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .btn svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* Section Headings */
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 36px 4px 18px;
+    }
+
+    .section-head h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-head h2::before {
+      content: "";
+      width: 4px;
+      height: 18px;
+      border-radius: 999px;
+      background: linear-gradient(to bottom, var(--neon-pink), var(--neon-purple));
+    }
+
+    .section-head a.sub-link {
+      color: var(--neon-pink);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.2s;
+    }
+
+    .section-head a.sub-link:hover {
+      color: #fda4af;
+      text-decoration: underline;
+    }
+
+    /* Track Cards List */
+    .tracks-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .track-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 14px 18px;
+      backdrop-filter: blur(14px);
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .track-item:hover {
+      background: var(--card-hover);
+      border-color: rgba(244, 63, 94, 0.45);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 0 0 20px rgba(244, 63, 94, 0.15);
+    }
+
+    .track-thumb {
+      width: 72px;
+      height: 72px;
+      border-radius: 14px;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 1.5px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+
+    .track-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .track-item:hover .track-thumb img {
+      transform: scale(1.08);
+    }
+
+    .track-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .track-title {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .track-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 8px;
+    }
+
+    .track-stream-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .stream-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.05);
+      color: #e2e8f0;
+    }
+
+    .stream-pill svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
+    .stream-pill.sp:hover {
+      background: rgba(29, 185, 84, 0.2);
+      border-color: #1db954;
+      color: #1db954;
+      box-shadow: 0 0 10px rgba(29, 185, 84, 0.3);
+    }
+
+    .stream-pill.yt:hover {
+      background: rgba(255, 0, 51, 0.2);
+      border-color: #ff0033;
+      color: #ff0033;
+      box-shadow: 0 0 10px rgba(255, 0, 51, 0.3);
+    }
+
+    /* Social Section */
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .social-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 18px 12px;
+      border-radius: 18px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      text-decoration: none;
+      backdrop-filter: blur(14px);
+      transition: all 0.25s ease;
+    }
+
+    .social-card:hover {
+      background: var(--card-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .social-card.yt:hover { border-color: rgba(255, 0, 51, 0.6); color: #ff0033; box-shadow: 0 0 20px rgba(255, 0, 51, 0.25); }
+    .social-card.ig:hover { border-color: rgba(244, 63, 94, 0.6); color: #f43f5e; box-shadow: 0 0 20px rgba(244, 63, 94, 0.25); }
+    .social-card.tk:hover { border-color: rgba(6, 182, 212, 0.6); color: #06b6d4; box-shadow: 0 0 20px rgba(6, 182, 212, 0.25); }
+    .social-card.fb:hover { border-color: rgba(24, 119, 242, 0.6); color: #1877f2; box-shadow: 0 0 20px rgba(24, 119, 242, 0.25); }
+
+    .social-card svg {
+      width: 26px;
+      height: 26px;
+      fill: currentColor;
+    }
+
+    .social-card span {
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    /* Contact Section */
+    .contact-box {
+      margin-top: 40px;
+      padding: 28px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(244, 63, 94, 0.12), rgba(168, 85, 247, 0.12));
+      border: 1px solid rgba(244, 63, 94, 0.3);
+      backdrop-filter: blur(16px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 14px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+    }
+
+    .contact-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .contact-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      max-width: 420px;
+    }
+
+    .email-display {
+      font-family: 'Barlow Condensed', monospace, sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      color: #ffffff;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 8px 18px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .contact-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 4px;
+    }
+
+    .btn-copy {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .btn-copy:hover {
+      background: rgba(255, 255, 255, 0.22);
+      border-color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .btn-mail {
+      background: linear-gradient(135deg, var(--neon-pink), #ec4899);
+      border: none;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(244, 63, 94, 0.4);
+      transition: all 0.2s;
+    }
+
+    .btn-mail:hover {
+      filter: brightness(1.1);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(244, 63, 94, 0.6);
+    }
+
+    #copy-status {
+      font-size: 0.82rem;
+      color: var(--neon-green);
+      font-weight: 500;
+      min-height: 18px;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 48px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #64748b;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    footer .brand-foot {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.4rem;
+      font-style: italic;
+      font-weight: 800;
+      color: #94a3b8;
+    }
+
+    footer .brand-foot span {
+      color: var(--neon-pink);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 640px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 20px;
+      }
+
+      .hero-card::before {
+        display: none;
+      }
+
+      .hero-badge-wrap {
+        justify-content: center;
+      }
+
+      .hero-meta {
+        justify-content: center;
+      }
+
+      .cover-sleeve {
+        max-width: 240px;
+        margin: 0 auto;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .social-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .track-thumb {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  </style>
+</head>
+<body id="top">
+
+  <div class="container">
+
+    <!-- Top Navigation -->
+    <header class="navbar">
+      <a class="wordmark" href="#top" aria-label="Ponpu หน้าแรก">
+        <img src="avatar.svg" alt="Ponpu" style="width: 38px; height: 38px; border-radius: 50%; vertical-align: middle; margin-right: 10px; border: 1.5px solid var(--neon-pink); box-shadow: 0 0 12px rgba(244, 63, 94, 0.4); display: inline-block;">
+        PONPU<span>.</span>
+      </a>
+      <nav class="nav-links" aria-label="เมนูหลัก">
+        <a href="#latest">เพลงล่าสุด</a>
+        <a href="#music">เพลงทั้งหมด</a>
+        <a href="#follow">ติดตาม</a>
+        <a href="#contact">ติดต่องาน</a>
+      </nav>
+    </header>
+
+    <!-- Hero: Latest Single Spotlight -->
+    <section class="hero-card" id="latest">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="hero-badge-wrap">
+            <span class="kicker-badge">🔥 ซิงเกิลล่าสุด</span>
+            <span class="genre-tag">Pop / Indie Rock</span>
+          </div>
+
+          <h1 class="hero-title">ม้ายเจ ม้ายใจ</h1>
+
+          <p class="hero-meta">
+            <span>Ponpu</span>
+            <span class="dot"></span>
+            <span>ปล่อยเมื่อ 30.09.2026</span>
+          </p>
+
+          <div class="hero-actions">
+            <!-- Spotify -->
+            <a class="btn btn-spotify" href="https://open.spotify.com/track/3xuMnQekIpCeLhgwx5Ro7m" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.502 17.308c-.215.353-.675.467-1.028.252-2.825-1.726-6.381-2.116-10.57-1.159-.404.093-.807-.16-.9-.564-.093-.404.16-.807.564-.9 4.586-1.047 8.52-.607 11.682 1.343.353.215.467.675.252 1.028zm1.469-3.267c-.27.44-.848.577-1.288.307-3.235-1.988-8.167-2.563-11.993-1.401-.497.151-1.026-.135-1.177-.632-.151-.497.135-1.026.632-1.177 4.373-1.328 9.807-.687 13.52 1.615.44.27.577.848.307 1.288zm.126-3.41c-3.88-2.304-10.28-2.516-13.99-1.389-.594.18-1.223-.157-1.403-.751-.18-.594.157-1.223.751-1.403 4.26-1.294 11.325-1.046 15.807 1.614.535.317.708 1.01.391 1.545-.317.535-1.01.708-1.545.391z"/></svg>
+              ฟังบน Spotify
+            </a>
+            <!-- YouTube Music -->
+            <a class="btn btn-ytm" href="https://music.youtube.com/watch?v=TbYAIQ2jhmI" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              YouTube Music
+            </a>
+            <!-- Amazon Music -->
+            <a class="btn btn-amazon" href="https://music.amazon.ca/tracks/B0HJMQBRM1" target="_blank" rel="noopener noreferrer">
+              Amazon Music
+            </a>
+          </div>
+        </div>
+
+        <!-- Cover Artwork Display -->
+        <div class="cover-sleeve">
+          <img class="cover-img" src="assets/latest.jpg" onerror="this.src='https://ponpu.pages.dev/assets/latest.jpg'" alt="ปกซิงเกิล ม้ายเจ ม้ายใจ ของ Ponpu">
+          <span class="cover-sleeve-badge">30.09.2026</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Discography Section -->
+    <section id="music">
+      <div class="section-head">
+        <h2>ผลงานเพลงทั้งหมด (Discography)</h2>
+        <a class="sub-link" href="https://open.spotify.com/artist/7vwrngvehTPMJhhgsWvcN4" target="_blank" rel="noopener noreferrer">
+          โปรไฟล์ Spotify ↗
+        </a>
+      </div>
+
+      <div class="tracks-grid">
+        <!-- Track 1: Unidentified -->
+        <article class="track-item">
+          <div class="track-thumb">
+            <img src="assets/unidentified.jpg" onerror="this.src='https://ponpu.pages.dev/assets/unidentified.jpg'" alt="ปกเพลง Unidentified">
+          </div>
+          <div class="track-info">
+            <div class="track-title">Unidentified</div>
+            <div class="track-desc">ซิงเกิลที่ 2 • ยืนยันตัวตน</div>
+            <div class="track-stream-links">
+              <a class="stream-pill sp" href="https://open.spotify.com/track/2P7myYsusgv1NkDtebM8h8" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.502 17.308c-.215.353-.675.467-1.028.252-2.825-1.726-6.381-2.116-10.57-1.159-.404.093-.807-.16-.9-.564-.093-.404.16-.807.564-.9 4.586-1.047 8.52-.607 11.682 1.343.353.215.467.675.252 1.028zm1.469-3.267c-.27.44-.848.577-1.288.307-3.235-1.988-8.167-2.563-11.993-1.401-.497.151-1.026-.135-1.177-.632-.151-.497.135-1.026.632-1.177 4.373-1.328 9.807-.687 13.52 1.615.44.27.577.848.307 1.288zm.126-3.41c-3.88-2.304-10.28-2.516-13.99-1.389-.594.18-1.223-.157-1.403-.751-.18-.594.157-1.223.751-1.403 4.26-1.294 11.325-1.046 15.807 1.614.535.317.708 1.01.391 1.545-.317.535-1.01.708-1.545.391z"/></svg>
+                Spotify
+              </a>
+              <a class="stream-pill yt" href="https://music.youtube.com/playlist?list=OLAK5uy_kxzXLmdJcN5zvaaLlJ5WWXJDY_K0dKhh0" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                YouTube Music
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Track 2: ขวัญอ่อน (Pretended) -->
+        <article class="track-item">
+          <div class="track-thumb">
+            <img src="assets/pretended.jpg" onerror="this.src='https://ponpu.pages.dev/assets/pretended.jpg'" alt="ปกเพลง ขวัญอ่อน Pretended">
+          </div>
+          <div class="track-info">
+            <div class="track-title">ขวัญอ่อน</div>
+            <div class="track-desc">ซิงเกิลที่ 3 • Pretended</div>
+            <div class="track-stream-links">
+              <a class="stream-pill sp" href="https://open.spotify.com/track/4xdONYQMNKYUBDNT247yLG" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.502 17.308c-.215.353-.675.467-1.028.252-2.825-1.726-6.381-2.116-10.57-1.159-.404.093-.807-.16-.9-.564-.093-.404.16-.807.564-.9 4.586-1.047 8.52-.607 11.682 1.343.353.215.467.675.252 1.028zm1.469-3.267c-.27.44-.848.577-1.288.307-3.235-1.988-8.167-2.563-11.993-1.401-.497.151-1.026-.135-1.177-.632-.151-.497.135-1.026.632-1.177 4.373-1.328 9.807-.687 13.52 1.615.44.27.577.848.307 1.288zm.126-3.41c-3.88-2.304-10.28-2.516-13.99-1.389-.594.18-1.223-.157-1.403-.751-.18-.594.157-1.223.751-1.403 4.26-1.294 11.325-1.046 15.807 1.614.535.317.708 1.01.391 1.545-.317.535-1.01.708-1.545.391z"/></svg>
+                Spotify
+              </a>
+              <a class="stream-pill yt" href="https://music.youtube.com/playlist?list=OLAK5uy_laBJMD-9howa6kD3RV1CjAbR0WMYuq4Wk" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                YouTube Music
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Track 3: Happy So Bad -->
+        <article class="track-item">
+          <div class="track-thumb">
+            <img src="assets/happy.jpg" onerror="this.src='https://ponpu.pages.dev/assets/happy.jpg'" alt="ปกเพลง Happy So Bad">
+          </div>
+          <div class="track-info">
+            <div class="track-title">Happy So Bad</div>
+            <div class="track-desc">ซิงเกิลเดบิวต์ • อกหักแบบหล่อ ๆ</div>
+            <div class="track-stream-links">
+              <a class="stream-pill sp" href="https://open.spotify.com/track/3da5UbRIh0OkfnknERlhdv" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.502 17.308c-.215.353-.675.467-1.028.252-2.825-1.726-6.381-2.116-10.57-1.159-.404.093-.807-.16-.9-.564-.093-.404.16-.807.564-.9 4.586-1.047 8.52-.607 11.682 1.343.353.215.467.675.252 1.028zm1.469-3.267c-.27.44-.848.577-1.288.307-3.235-1.988-8.167-2.563-11.993-1.401-.497.151-1.026-.135-1.177-.632-.151-.497.135-1.026.632-1.177 4.373-1.328 9.807-.687 13.52 1.615.44.27.577.848.307 1.288zm.126-3.41c-3.88-2.304-10.28-2.516-13.99-1.389-.594.18-1.223-.157-1.403-.751-.18-.594.157-1.223.751-1.403 4.26-1.294 11.325-1.046 15.807 1.614.535.317.708 1.01.391 1.545-.317.535-1.01.708-1.545.391z"/></svg>
+                Spotify
+              </a>
+              <a class="stream-pill yt" href="https://music.youtube.com/watch?v=Bg1qymDV3Us" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                YouTube Music
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Follow / Socials Section -->
+    <section id="follow">
+      <div class="section-head">
+        <h2>ติดตาม Ponpu (Follow)</h2>
+      </div>
+
+      <div class="social-grid">
+        <!-- YouTube -->
+        <a class="social-card yt" href="https://www.youtube.com/channel/UCErF0OkfBQ-SVBIAodJGTTA" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <span>YouTube</span>
+        </a>
+
+        <!-- Instagram -->
+        <a class="social-card ig" href="https://www.instagram.com/ponpu.ratta/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          <span>Instagram</span>
+        </a>
+
+        <!-- TikTok -->
+        <a class="social-card tk" href="https://www.tiktok.com/@ponpu.ratta" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          <span>TikTok</span>
+        </a>
+
+        <!-- Facebook -->
+        <a class="social-card fb" href="https://www.facebook.com/PonpuRatta/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <span>Facebook</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Contact & Business Section -->
+    <section class="contact-box" id="contact">
+      <h3 class="contact-title">ติดต่อเรื่องงาน (Contact & Booking)</h3>
+      <p class="contact-desc">
+        สำหรับติดต่องานแสดง ดนตรี สปอนเซอร์ และโปรเจกต์พิเศษ
+      </p>
+
+      <div class="email-display" id="contact-email">
+        bargameshop@gmail.com
+      </div>
+
+      <div class="contact-actions">
+        <button class="btn-copy" id="copy-email" type="button">
+          📋 คัดลอกอีเมล
+        </button>
+        <a class="btn-mail" href="mailto:bargameshop@gmail.com">
+          ✉️ ส่งอีเมล
+        </a>
+      </div>
+
+      <p id="copy-status" role="status"></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="brand-foot">PONPU<span>.</span></div>
+      <span>&copy; Ponpu. All rights reserved.</span>
+      <span>Official Landing Page & Discography</span>
+    </footer>
+
+  </div>
+
+  <!-- Interactive Script for Copy Email -->
+  <script>
+    const copyBtn = document.getElementById("copy-email");
+    const emailEl = document.getElementById("contact-email");
+    const statusEl = document.getElementById("copy-status");
+
+    if (copyBtn && emailEl) {
+      copyBtn.addEventListener("click", async () => {
+        const text = emailEl.textContent.trim();
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            // Fallback for older browsers
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textArea);
+          }
+          statusEl.textContent = "✓ คัดลอกอีเมลเรียบร้อยแล้ว!";
+          setTimeout(() => {
+            statusEl.textContent = "";
+          }, 3000);
+        } catch (err) {
+          statusEl.textContent = "ไม่สามารถคัดลอกได้ กรุณาไฮไลต์อีเมลด้วยตนเอง";
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
